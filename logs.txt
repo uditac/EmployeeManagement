@@ -1,0 +1,4 @@
+2023-04-28 00:03:51.806 +02:00 [INF] started logging
+2023-04-28 00:04:19.815 +02:00 [INF] started logging
+2023-04-28 00:09:50.548 +02:00 [INF] started logging
+2023-04-28 00:17:28.150 +02:00 [INF] started logging
