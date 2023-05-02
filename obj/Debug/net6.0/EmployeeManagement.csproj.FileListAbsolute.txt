@@ -32,3 +32,13 @@ C:\Users\User\source\repos\uditac\EmployeeManagement\obj\Debug\net6.0\EmployeeMa
 C:\Users\User\source\repos\uditac\EmployeeManagement\obj\Debug\net6.0\ref\EmployeeManagement.dll
 C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Serilog.dll
 C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Npgsql.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Npgsql.DependencyInjection.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Dapper.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\FluentMigrator.Abstractions.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\FluentMigrator.Extensions.Postgres.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\FluentMigrator.Runner.Core.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\FluentMigrator.Runner.Postgres.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\de-DE\FluentMigrator.Abstractions.resources.dll
+C:\Users\User\source\repos\uditac\EmployeeManagement\bin\Debug\net6.0\Newtonsoft.Json.dll
