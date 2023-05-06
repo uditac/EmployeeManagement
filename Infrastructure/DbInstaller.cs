@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using Newtonsoft;
 using Npgsql;
+using EmployeeManagement.Repository;
 
 namespace EmployeeManagement.Infrastructure
 {
@@ -16,6 +17,7 @@ namespace EmployeeManagement.Infrastructure
             NpgsqlDataSource datasrc = NpgsqlDataSource.Create(credentials?.ConnectionString);
 
             services.AddSingleton(datasrc);
+            
             return services;
 
         }

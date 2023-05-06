@@ -3,10 +3,9 @@
     public class Employee
 
     {
-        public int EmpId { get; set; }
-        public string EmpName { get; set; }
-        public int Age { get; set; }
-        public string Address { get; set; }
-        public string MobileNumber { get; set; }
+        public int EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
+        public int DepartmentId { get; set; }
+      
     }
 }
