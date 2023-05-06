@@ -4,6 +4,10 @@ using Dapper;
 using Npgsql;
 using EmployeeManagement.Infrastructure;
 using System.Reflection;
+using EmployeeManagement.Controllers;
+using EmployeeManagement.Services;
+using EmployeeManagement.Repository;
+using System.Data;
 
 using var log = new LoggerConfiguration()//new
     .WriteTo.File("./logs.txt")
@@ -18,7 +22,15 @@ configuration.AddEnvironmentVariables()
 
 builder.Services
     .AddSingleton<Serilog.ILogger>(log)
-    .AddDBhandler(configuration);
+    .AddDBhandler(configuration)
+    .AddSingleton<IEmployeeRepository, EmployeeRepository>()
+    .AddSingleton<IEmployeeService, EmployeeService>()
+    .AddSingleton<IDepartmentRepository, DepartmentRepository>()
+    .AddSingleton<IDepartmentService, DepartmentService>();
+
+
+
+
 log.Information("started logging");
 
 
@@ -30,16 +42,16 @@ builder.Services.AddControllers();
 IWebHostEnvironment environment = builder.Environment;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services
+    .AddSwaggerGen();
 
 //configuring dapper class
 
 builder.Services.AddControllers();
 
 
-
 var app = builder.Build();
-
 
 
 

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "EmployeeManagement/1.0.0": {
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.38.1",
           "Dapper": "2.0.123",
           "FluentMigrator.Runner.Postgres": "3.3.2",
           "Newtonsoft.Json": "13.0.3",
@@ -19,6 +20,14 @@
         },
         "runtime": {
           "EmployeeManagement.dll": {}
+        }
+      },
+      "CSharpFunctionalExtensions/2.38.1": {
+        "runtime": {
+          "lib/net6.0/CSharpFunctionalExtensions.dll": {
+            "assemblyVersion": "2.38.1.0",
+            "fileVersion": "2.38.1.0"
+          }
         }
       },
       "Dapper/2.0.123": {
@@ -222,6 +231,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CSharpFunctionalExtensions/2.38.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7rQUCqQ/8S6YdgyeJ8SOsR39H4b119AIwbZ5w2w6Abge4K1azs5ZtXt/3Uk/FQ3pjHewl918KHMWywC5tX8CvQ==",
+      "path": "csharpfunctionalextensions/2.38.1",
+      "hashPath": "csharpfunctionalextensions.2.38.1.nupkg.sha512"
     },
     "Dapper/2.0.123": {
       "type": "package",

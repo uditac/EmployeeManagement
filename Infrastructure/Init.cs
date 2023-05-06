@@ -46,8 +46,6 @@ namespace EmployeeManagement.Infrastructure
                 await connection.CloseAsync();
             }  
 
-       
-            
         }
     }
 }
