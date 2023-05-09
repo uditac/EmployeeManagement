@@ -147,6 +147,3 @@
 2023-05-06 08:10:25.943 +02:00 [INF] started logging
 2023-05-06 08:26:56.507 +02:00 [INF] started logging
 2023-05-06 08:46:32.439 +02:00 [INF] started logging
-2023-05-07 17:30:35.384 +02:00 [INF] started logging
-2023-05-07 17:47:17.287 +02:00 [INF] started logging
-2023-05-07 17:59:17.424 +02:00 [INF] started logging
