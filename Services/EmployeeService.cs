@@ -13,6 +13,9 @@ public interface IEmployeeService
 {
     Task<Result> CreateRecord(CreateEmployeeRequest request);
     Task<Result<EmployeeViewModel>> GetEmployeeDetails(int empId);
+    Task<Result> UpdateEmployeeDetails(int empId, string empName);
+
+    Task<Result> DeleteEmployee(int empId);
 }
 
 
@@ -51,11 +54,39 @@ public class EmployeeService : IEmployeeService
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.StackTrace!.ToString()); ;
+            Console.WriteLine(ex.StackTrace!.ToString()); 
         }
 
         return result;
         
+    }
+
+     public async Task<Result> UpdateEmployeeDetails(int empId, string empName)
+    {
+        try
+        { await _repository.UpdateEmployeeDetails(empId, empName);
+            return Result.Success("emp updated");
+        }
+        catch (Exception ex) 
+        { Console.WriteLine(ex.Message);
+           return Result.Failure("emp updation failed");
+        }
+
+    }
+
+    public async Task<Result> DeleteEmployee(int empId)
+    {
+        try
+        {
+            await _repository.DeleteEmployee(empId);
+            return Result.Success("emp updated");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return Result.Failure("emp updation failed");
+        }
+
     }
 
 }

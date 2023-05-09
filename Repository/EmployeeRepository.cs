@@ -5,6 +5,7 @@ using EmployeeManagement.Services;
 using FluentMigrator.Runner.Processors;
 using Npgsql;
 using System.Data;
+using System.IO;
 
 namespace EmployeeManagement.Repository;
 
@@ -15,6 +16,9 @@ public interface IEmployeeRepository
     Task CreateEmployee(Employee employee);
     Task<EmployeeViewModel> GetEmployeeDetails(int empId);
 
+    Task UpdateEmployeeDetails(int empId, string empName );
+
+    Task DeleteEmployee(int empId);
 
 }
 
@@ -88,13 +92,64 @@ public class EmployeeRepository : IEmployeeRepository
             await transaction.RollbackAsync();
             throw new Exception(ex.Message);
         }
-        //finally
-        //{
-        //  //  await transaction.CommitAsync();
-        // //   await connection.CloseAsync();
-        //}
+        finally
+        {
+            await transaction.CommitAsync();
+            await connection.CloseAsync();
+        }
 
         return employeeViewModel!;
+    }
+
+    public async Task UpdateEmployeeDetails(int empId,string empName)
+    {
+        string cmd = $"update employee set empname=(@empName) where empId = (@empId)";
+        NpgsqlConnection connection = await _dataSource.OpenConnectionAsync();
+        NpgsqlTransaction transaction = await connection.BeginTransactionAsync();
+        try
+        {
+            NpgsqlCommand command = new NpgsqlCommand(cmd, connection, transaction);
+            command.Parameters.Add(new NpgsqlParameter("empname", empName));
+
+            command.Parameters.Add(new NpgsqlParameter("empId",empId));
+            await command.ExecuteNonQueryAsync();
+
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            await transaction.CommitAsync();
+            await connection.CloseAsync();
+        }
+
+    }
+
+    public async Task DeleteEmployee(int empId)
+    {
+        string cmd = $"DELETE FROM employee WHERE empid = (@empId);";
+        NpgsqlConnection connection = await _dataSource.OpenConnectionAsync();
+        NpgsqlTransaction transaction = await connection.BeginTransactionAsync();
+        try
+        {
+            NpgsqlCommand command = new NpgsqlCommand(cmd, connection, transaction);
+            command.Parameters.Add(new NpgsqlParameter("empId", empId));
+            await command.ExecuteNonQueryAsync();
+
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            throw new Exception(ex.Message);
+        }
+        finally
+        {
+            await transaction.CommitAsync();
+            await connection.CloseAsync();
+        }
 
     }
 

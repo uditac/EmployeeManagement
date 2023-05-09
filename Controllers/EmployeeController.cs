@@ -41,4 +41,22 @@ public class EmployeeController : ControllerBase
         
        
     }
+
+    [HttpPut(Name = "UpdateName")]
+    public async Task<Result> UpdateEmployeeDetails(int empId, string empName)
+    {
+
+        Result result = await _empService.UpdateEmployeeDetails(empId,empName);
+
+        return result;
+    }
+
+    [HttpDelete(Name = "DeleteEmployee")]
+    public async Task<Result> DeleteEmployee(int empId)
+    {
+
+        Result result = await _empService.DeleteEmployee(empId);
+
+        return result;
+    }
 }
