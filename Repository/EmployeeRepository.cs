@@ -103,7 +103,7 @@ public class EmployeeRepository : IEmployeeRepository
 
     public async Task UpdateEmployeeDetails(int empId,string empName)
     {
-        string cmd = $"update employee set empname=(@empName) where empId = (@empId)";
+        string cmd = $"UPDATE employee SET empname = (@empName) WHERE EXISTS (SELECT empname FROM employee WHERE empId = (@empId) )";
         NpgsqlConnection connection = await _dataSource.OpenConnectionAsync();
         NpgsqlTransaction transaction = await connection.BeginTransactionAsync();
         try
@@ -117,6 +117,7 @@ public class EmployeeRepository : IEmployeeRepository
         }
         catch (Exception ex)
         {
+            throw new Exception("Record already exixts");
             await transaction.RollbackAsync();
             throw new Exception(ex.Message);
         }
